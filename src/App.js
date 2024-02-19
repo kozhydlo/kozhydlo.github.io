@@ -61,6 +61,11 @@ function App() {
       icon: FaGoogle,
       text: 'Google Developer',
     },
+    {
+      url: 'https://my-portfolio-nine-kohl-41.vercel.app/',
+      icon: FaGoogle,
+      text: 'My Portfolio',
+    },
   ];
 
   const devlinks = [
