@@ -1,43 +1,38 @@
-import React, { useState, useEffect } from 'react';
 import {
-  ChakraProvider,
   Box,
-  Text,
-  VStack,
+  ButtonGroup,
+  Link as ChakraLink,
+  ChakraProvider,
   Grid,
-  theme,
+  HStack,
+  IconButton,
   Image,
   List,
-  HStack,
   Skeleton,
   SkeletonCircle,
   SkeletonText,
-  ButtonGroup,
-  IconButton,
-} from '@chakra-ui/react';
-import { Link as ChakraLink } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
-import { FaTwitch } from 'react-icons/fa';
-import { GrTwitter } from 'react-icons/gr';
-import { FaGoogle } from "react-icons/fa";
-
-import { motion } from 'framer-motion';
+  Text,
+  theme,
+  VStack,
+} from '@chakra-ui/react'
+import { motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import { FaGoogle, FaTwitch } from 'react-icons/fa'
+import { GrTwitter } from 'react-icons/gr'
+import { Link } from 'react-router-dom'
 
 import {
-  AiFillGithub,
   AiFillCheckCircle,
-  AiFillYoutube,
-  AiFillDollarCircle,
-  AiFillInstagram,
-} from 'react-icons/ai';
+  AiFillGithub,
+  AiFillInstagram
+} from 'react-icons/ai'
 
 import {
-  FaTelegram,
-  FaLinkedin,
-  FaVk,
   FaGlobe,
-  FaYoutube,
-} from 'react-icons/fa';
+  FaTelegram
+} from 'react-icons/fa'
+
+import SubscribeBanner from './SubscribeBanner'
 
 function App() {
   const links = [
@@ -57,12 +52,7 @@ function App() {
       text: 'Twitch',
     },
     {
-      url: 'https://g.dev/kozhydlo',
-      icon: FaGoogle,
-      text: 'Google Developer',
-    },
-    {
-      url: 'https://my-portfolio-nine-kohl-41.vercel.app/',
+      url: 'https://kozhydlo-portfolio.vercel.app/#home',
       icon: FaGoogle,
       text: 'My Portfolio',
     },
@@ -85,9 +75,9 @@ function App() {
       text: 'Movie Parser',
     },
     {
-      url: 'https://t.me/Kozhydlobot',
-      icon: FaTelegram,
-      text: 'My Telegram Bot',
+      url: 'https://github.com/kozhydlo/crypto-app',
+      icon: AiFillGithub,
+      text: 'Crypto App',
     },
   ];
 
@@ -160,7 +150,7 @@ function App() {
               ) : (
                 <Image
                   src="./Logo.png"
-                  alt="Логотип канала Техноманьяк"
+                  alt="Логотип"
                   w="9em"
                   borderRadius="50%"
                   border="3px solid white"
@@ -344,6 +334,7 @@ function App() {
             </List>
           </VStack>
         </Grid>
+        <SubscribeBanner />
       </Box>
     </ChakraProvider>
   );
