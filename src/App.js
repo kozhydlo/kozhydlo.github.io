@@ -52,7 +52,7 @@ function App() {
       text: 'Twitch',
     },
     {
-      url: 'https://kozhydlo-portfolio.vercel.app/#home',
+      url: 'https://kozhydlomark-portfolio.vercel.app/',
       icon: FaGoogle,
       text: 'My Portfolio',
     },
