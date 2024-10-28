@@ -32,29 +32,23 @@ import {
   FaTelegram
 } from 'react-icons/fa'
 
-import SubscribeBanner from './SubscribeBanner'
 
 function App() {
   const links = [
     {
       url: 'https://github.com/kozhydlo',
       icon: AiFillGithub,
-      text: 'Мій GitHub',
+      text: 'GitHub',
     },
     {
-      url: 'https://www.tiktok.com/@kozhydlomark',
-      icon: FaGlobe,
-      text: 'TikTok',
-    },
-    {
-      url: 'https://www.twitch.tv/kozhydlom',
+      url: 'https://www.twitch.tv/kozhydlomark',
       icon: FaTwitch,
       text: 'Twitch',
     },
     {
       url: 'https://kozhydlomark-portfolio.vercel.app/',
       icon: FaGoogle,
-      text: 'My Portfolio',
+      text: 'Portfolio',
     },
   ];
 
@@ -65,14 +59,14 @@ function App() {
       text: 'ECO-BLOG',
     },
     {
-      url: 'https://github.com/kozhydlo/Face-recognition-and-biography',
+      url: 'https://book-app-eosin-alpha.vercel.app/',
       icon: AiFillGithub,
-      text: 'Face recognition',
+      text: 'Book App',
     },
     {
-      url: 'https://github.com/kozhydlo/movie-parser',
+      url: 'https://friends-website-dusky.vercel.app/',
       icon: AiFillGithub,
-      text: 'Movie Parser',
+      text: 'Friends-website',
     },
     {
       url: 'https://github.com/kozhydlo/crypto-app',
@@ -93,7 +87,7 @@ function App() {
   const socialLink = {
     telegram: 'https://t.me/Kozhydlom',
     instagram: 'https://www.instagram.com/kozhydlomark/',
-    twitter: 'https://twitter.com/kozhydlo',
+    twitter: 'https://x.com/kozhydlo',
   };
 
   const parentContainer = {
@@ -136,7 +130,7 @@ function App() {
           minH="100vh"
           p={3}
           sx={{
-            backgroundImage: "url('./background.png')",
+            backgroundColor: "#555B6E",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
@@ -149,7 +143,7 @@ function App() {
                 <SkeletonCircle size="6em" />
               ) : (
                 <Image
-                  src="./Logo.png"
+                  src="./Logo.jpg"
                   alt="Логотип"
                   w="9em"
                   borderRadius="50%"
@@ -214,8 +208,8 @@ function App() {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       _hover={{
-                        boxShadow: '3px 3px 3px 0px rgba(188,19,254)',
-                        color: 'rgba(188,19,254)',
+                        boxShadow: '3px 3px 3px 0px #FFD6BA',
+                        
                       }}
                     />
                   </ChakraLink>
@@ -228,8 +222,8 @@ function App() {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       _hover={{
-                        boxShadow: '3px 3px 3px 0px rgba(188,19,254)',
-                        color: 'rgba(188,19,254)',
+                        boxShadow: '3px 3px 3px 0px #FFD6BA',
+                        
                       }}
                     />
                   </ChakraLink>
@@ -242,8 +236,8 @@ function App() {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       _hover={{
-                        boxShadow: '3px 3px 3px 0px rgba(188,19,254)',
-                        color: 'rgba(188,19,254)',
+                        boxShadow: '3px 3px 3px 0px #FFD6BA',
+                        
                       }}
                     />
                   </ChakraLink>
@@ -273,8 +267,8 @@ function App() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     _hover={{
-                      boxShadow: '12px 14px 14px 0px rgba(188,19,254)',
-                      color: 'rgba(188,19,254)',
+                      boxShadow: '12px 14px 14px 0px #FFD6BA',
+                      
                     }}
                   >
                     <Text as={link.icon} fontSize={30} marginRight="auto" />
@@ -310,8 +304,8 @@ function App() {
                     p="1em"
                     marginY="1em"
                     _hover={{
-                      boxShadow: '12px 14px 14px 0px rgba(156, 38, 184, 0.84)',
-                      color: 'rgba(156, 38, 184, 0.84)',
+                      boxShadow: '12px 14px 14px 0px #FFD6BA',
+                      
                     }}
                     as={motion.div}
                     variants={chieldElement}
@@ -334,7 +328,6 @@ function App() {
             </List>
           </VStack>
         </Grid>
-        <SubscribeBanner />
       </Box>
     </ChakraProvider>
   );
