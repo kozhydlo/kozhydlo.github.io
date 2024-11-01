@@ -1,7 +1,7 @@
-import React from 'react';
-import { Box, Button, Center } from '@chakra-ui/react';
-import { QRCodeCanvas } from 'qrcode.react';
-import { useNavigate } from 'react-router-dom';
+import { Box, Button, Center } from '@chakra-ui/react'
+import { QRCodeCanvas } from 'qrcode.react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function FullScreenQRCode({ onClose }) {
   const navigate = useNavigate();
@@ -20,8 +20,7 @@ function FullScreenQRCode({ onClose }) {
       <Box 
         position="relative" 
         p={4} 
-        bg="white" 
-				
+        bg="white"
         borderRadius="lg" 
         border="8px solid #212121"
         boxShadow="xl"
