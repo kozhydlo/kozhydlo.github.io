@@ -46,7 +46,7 @@ function App() {
   const info = { name: '@Kozhydlo' };
   const color = { colorTheme: 'linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%)', colorButton: 'rgba(255,255,255)' };
   const socialLink = {
-    telegram: 'https://t.me/Kozhydlom',
+    telegram: 'https://t.me/kozhydlo',
     instagram: 'https://www.instagram.com/kozhydlomark/',
     twitter: 'https://x.com/kozhydlo',
   };
