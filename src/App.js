@@ -48,7 +48,7 @@ function App() {
   const socialLink = {
     telegram: 'https://t.me/kozhydlo',
     instagram: 'https://www.instagram.com/kozhydlomark/',
-    twitter: 'https://x.com/kozhydlo',
+    twitter: 'https://x.com/kozhydlo_mark',
   };
 
   const parentContainer = {
