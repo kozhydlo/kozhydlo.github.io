@@ -1,0 +1,85 @@
+.modal-menu-backdrop {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: flex-end;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.5s ease, visibility 0.5s ease;
+	z-index: 1000;
+}
+
+.modal-menu-backdrop.show {
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal-menu-content {
+	display: flex;
+	background: white;
+	flex-direction: column;
+	position: relative;
+	top: 100px;
+	right: 10vw;
+	color: black;
+	border-radius: 16px;
+	width: 50vw;
+	height: 28vh;
+	font-size: 7vw;
+	border: 3px solid #eeebff;
+	line-height: 12vw;
+	transform: translateY(-2vh); 
+	transition: transform 0.3s ease-in-out;
+	z-index: 1001;
+}
+
+.modal-menu-content a {
+	padding: 1vw 6vw 1vw 6vw;
+	user-select: none;
+  cursor: pointer;
+	border-bottom: 0.5vw solid #eeebff50;
+}
+
+.modal-menu-content a:last-child {
+	border-bottom: none;
+}
+
+.modal-menu-backdrop.show .modal--menu-content {
+	transform: scale(1);
+}
+
+
+
+.social-button {
+	align-items: center;
+	display: flex;
+	height: 55px;
+	width: 220px;
+	border-radius: 55px;
+	background: black;
+	cursor: pointer;
+	transition: 0.3s ;
+	margin-right: 2%;
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.social.telegram {
+	content: url('./assets/icons/telegram.svg');
+	scale: 0.6;
+	margin: -2%;
+}
+
+.social.instagram {
+	content: url('./assets/icons/instagram.svg');
+	scale: 0.6;
+	margin: -2%;
+}
+
+.social-button:hover {
+	background-color: #4824ff;
+	filter: drop-shadow(0 0 35px #4824ff40);
+	color: #eeebff;
+}
