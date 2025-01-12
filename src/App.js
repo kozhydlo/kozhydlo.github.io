@@ -5,6 +5,7 @@ import Banners from './Banners.js'
 import InstagramStories from './InstagramStories.js'
 import ModalMenu from './ModalMenu.js'
 import ModalWindow from './ModalWindow.js'
+import Resize from './Resize.js'
 import Review from './Review.js'
 import Theme from './Theme.js'
 import YouTubeDesign from './YouTubeDesign.js'
@@ -23,7 +24,6 @@ function App() {
 			window.removeEventListener('resize', handleResize)
 		}
 	}, [])
-
 	const { theme, setTheme } = Theme()
 	const [isDarkTheme, setIsDarkTheme] = useState(() => {
 		const savedTheme = localStorage.getItem('theme')
@@ -109,14 +109,13 @@ function App() {
 	const visibleReview = 3
 
 	const handleLinkClick = (e, targetId) => {
-		e.preventDefault();
-		const targetElement = document.getElementById(targetId);
+		e.preventDefault()
+		const targetElement = document.getElementById(targetId)
 		if (targetElement) {
-			targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			handleCloseModalMenu(); // Закриваємо меню після кліку
+			targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+			handleCloseModalMenu() // Закриваємо меню після кліку
 		}
-	};
-	
+	}
 
 	const handleScroll = () => {
 		const box = containerRef.current
@@ -167,17 +166,16 @@ function App() {
 	}
 
 	const upButton = () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	};
-	
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	}
 
 	useEffect(() => {
 		window.addEventListener('scroll', scrollUp)
 	}, [])
 
-	const toBlock = (offsetTop) => {
-		window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-	};
+	const toBlock = offsetTop => {
+		window.scrollTo({ top: offsetTop, behavior: 'smooth' })
+	}
 	return (
 		<div>
 			<header>
@@ -289,18 +287,32 @@ function App() {
 			</header>
 
 			<ModalMenu show={showModalMenu} onClose={handleCloseModalMenu}>
-  <a onClick={(e) => handleLinkClick(e, 'up')}>Про мене</a>
-  <a onClick={(e) => handleLinkClick(e, 'services')}>Послуги</a>
-  <a onClick={(e) => handleLinkClick(e, 'portfolio')}>Портфоліо</a>
-  <a onClick={(e) => handleLinkClick(e, 'reviews')}>Відгуки</a>
-</ModalMenu>
-
+				<a onClick={e => handleLinkClick(e, 'up')}>Про мене</a>
+				<a onClick={e => handleLinkClick(e, 'services')}>Послуги</a>
+				<a onClick={e => handleLinkClick(e, 'portfolio')}>Портфоліо</a>
+				<a onClick={e => handleLinkClick(e, 'reviews')}>Відгуки</a>
+			</ModalMenu>
 
 			<ModalWindow show={showModal} onClose={handleCloseModal}>
-				<h2 style={{ color: '#4824ff', fontSize: '40px' }}>Контакти</h2>
-				<p style={{ fontSize: '22px' }}>
+				<h2
+					style={{
+						color: '#4824ff',
+						fontSize: isPortrait ? '40px' : '15vw',
+						marginTop: isPortrait ? '' : '0',
+					}}
+				>
+					Контакти
+				</h2>
+				{isPortrait ? (
+					<p style={{ fontSize: '22px' }}>
 					Ви можете зв'язатися зі мною в Telegram <br /> або Instagram 👇
 				</p>
+				) : (
+					<p style={{ fontSize: '33px' }}>
+					Ви можете зв'язатися зі мною в Telegram <br /> або Instagram 👇
+				</p>
+				)}
+				
 			</ModalWindow>
 
 			{isPortrait ? (
@@ -325,7 +337,11 @@ function App() {
 			) : (
 				<div className='welcome-block mobile'>
 					<div className='main-img-box mobile'>
-						<img className='first-image mobile' src={mainImage} alt='Ваше фото' />
+						<img
+							className='first-image mobile'
+							src={mainImage}
+							alt='Ваше фото'
+						/>
 					</div>
 					<div className='first-block mobile'>
 						<h1>
@@ -340,8 +356,8 @@ function App() {
 							<span style={{ color: '#4824ff' }}>2021 року</span>
 						</h3>
 						<button onClick={handleOpenModal} className='btn mobile'>
-								Зв'язатися
-							</button>
+							Зв'язатися
+						</button>
 					</div>
 				</div>
 			)}
