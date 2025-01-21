@@ -462,6 +462,7 @@ useEffect(() => {
                 <div className='review-container' ref={containerRef}>
                     {review}
                 </div>
+								<div className='review-card'></div>
 
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div
