@@ -10,17 +10,17 @@ import Theme from './Theme.js'
 import YouTubeDesign from './YouTubeDesign.js'
 
 function App() {
-	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
 
-useEffect(() => {
-    const handleResize = () => {
-        setIsMobile(window.innerWidth <= 768);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-        window.removeEventListener('resize', handleResize);
-    };
-}, []);
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth <= 768)
+		}
+		window.addEventListener('resize', handleResize)
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [])
 	const [isPortrait, setIsPortrait] = useState(
 		window.innerWidth > window.innerHeight
 	)
@@ -155,25 +155,24 @@ useEffect(() => {
 	}
 
 	useEffect(() => {
-    const box = containerRef.current;
+		const box = containerRef.current
 
-    // Перевірка на існування containerRef.current
-    if (!box) return;
+		// Перевірка на існування containerRef.current
+		if (!box) return
 
-    const firstReview = box.querySelector('.review-card');
-    if (firstReview) {
-        reviewWidthRef.current = firstReview.clientWidth;
-        const width = reviewWidthRef.current * visibleReview;
-        box.scrollLeft = (box.scrollWidth - width) / 2;
-        box.addEventListener('scroll', handleScroll);
+		const firstReview = box.querySelector('.review-card')
+		if (firstReview) {
+			reviewWidthRef.current = firstReview.clientWidth
+			const width = reviewWidthRef.current * visibleReview
+			box.scrollLeft = (box.scrollWidth - width) / 2
+			box.addEventListener('scroll', handleScroll)
 
-        // Очищення під час демонтажу
-        return () => {
-            box.removeEventListener('scroll', handleScroll);
-        };
-    }
-}, []);
-
+			// Очищення під час демонтажу
+			return () => {
+				box.removeEventListener('scroll', handleScroll)
+			}
+		}
+	}, [])
 
 	const [scroll, setScroll] = useState(0)
 
@@ -213,13 +212,15 @@ useEffect(() => {
 							>
 								Портфоліо
 							</a>
-							<a
-								onClick={() =>
-									toBlock(document.getElementById('reviews').offsetTop)
-								}
-							>
-								Відгуки
-							</a>
+							{!isMobile && (
+								<a
+									onClick={() =>
+										toBlock(document.getElementById('reviews').offsetTop)
+									}
+								>
+									Відгуки
+								</a>
+							)}
 						</div>
 
 						<div className='header-buttons'>
@@ -384,9 +385,10 @@ useEffect(() => {
 			>
 				<h1 style={{ fontSize: isPortrait ? '50px' : '10vw' }}>Послуги</h1>
 				<p style={{ fontSize: isPortrait ? '27px' : '6vw' }}>
-					Роблю
-					<span style={{ color: '#4824ff' }}> статичний дизайн </span> по
-					наступним направленням:
+					Я<span style={{ color: '#4824ff' }}> full-stack розробник </span> який
+					спеціалізується на створенні сайтів. Працюю над проєктами середньої
+					складності та створюю стильний і якісний статичний дизайн. Мої послуги
+					охоплюють:
 				</p>
 
 				<div style={{ display: isPortrait ? 'flex' : '' }}>
@@ -404,7 +406,7 @@ useEffect(() => {
 								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
 							} ${isPortrait ? '' : 'mobile'}`}
 						></span>
-						Рекламні сайти
+						Лендінги
 					</p>
 					<p className={isPortrait ? 'tag' : 'tag mobile'}>
 						<span
@@ -412,45 +414,89 @@ useEffect(() => {
 								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
 							} ${isPortrait ? '' : 'mobile'}`}
 						></span>
-						Рекламні сайти
+						Корпоративні сайти
+					</p>
+					<p className={isPortrait ? 'tag' : 'tag mobile'}>
+						<span
+							className={`tag-icon ${
+								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
+							} ${isPortrait ? '' : 'mobile'}`}
+						></span>
+						Веб-додатки
+					</p>
+					<p className={isPortrait ? 'tag' : 'tag mobile'}>
+						<span
+							className={`tag-icon ${
+								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
+							} ${isPortrait ? '' : 'mobile'}`}
+						></span>
+						Сайти для подій
+					</p>
+					
+					<p className={isPortrait ? 'tag' : 'tag mobile'}>
+						<span
+							className={`tag-icon ${
+								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
+							} ${isPortrait ? '' : 'mobile'}`}
+						></span>
+						Системи бронювання
 					</p>
 				</div>
 
 				<p style={{ fontSize: isPortrait ? '27px' : '6vw' }}>
-					Готовй для домовленості створення сайту і під інші направлення <br />
-					Деталі за замовленням можна{' '}
+					Готовий обговорити ваші ідеї та створити сайт для інших напрямків за
+					домовленістю. <br />
+					Деталі замовлення можна обговорити{' '}
 					<span
 						style={{ color: '#4824ff', cursor: 'pointer' }}
 						onClick={handleOpenModal}
 					>
-						зв'язатися зі мною
+						зв'язавшись зі мною.
 					</span>
 				</p>
 			</div>
 
 			<div className='portfolio-block' id='portfolio'>
 				<div className={isPortrait ? 'first-block' : 'first-block mobile'}>
-					<h1 className={isPortrait ? 'main-title' : 'main-title mobile'}>Портфоліо</h1>
-					<div style={{ position: 'absolute', marginLeft: isPortrait ? '-620px' : '-80vw' }}>
-						<p className={isPortrait ? 'gradient-part-one' : 'gradient-part-one mobile'}></p>
+					<h1 className={isPortrait ? 'main-title' : 'main-title mobile'}>
+						Портфоліо
+					</h1>
+					<div
+						style={{
+							position: 'absolute',
+							marginLeft: isPortrait ? '-620px' : '-80vw',
+						}}
+					>
+						<p
+							className={
+								isPortrait ? 'gradient-part-one' : 'gradient-part-one mobile'
+							}
+						></p>
 						{isPortrait ? (
-							<p className='title-border'>Портф</p> )
-						: (
+							<p className='title-border'>Портф</p>
+						) : (
 							<p className='title-border mobile'>Пор</p>
 						)}
 					</div>
-					<div style={{ position: 'absolute', marginLeft: isPortrait ? '580px' : '80vw' }}>
-						<p className={ isPortrait ? 'gradient-part-two' : 'gradient-part-two mobile'}></p>
+					<div
+						style={{
+							position: 'absolute',
+							marginLeft: isPortrait ? '580px' : '80vw',
+						}}
+					>
+						<p
+							className={
+								isPortrait ? 'gradient-part-two' : 'gradient-part-two mobile'
+							}
+						></p>
 						{isPortrait ? (
-							<p className='title-border'>фоліо</p> )
-						: (
+							<p className='title-border'>фоліо</p>
+						) : (
 							<p className='title-border mobile'>ліо</p>
 						)}
 					</div>
 					{/* <img className='array-icon' src={arrayIcon} draggable='false' /> */}
 				</div>
-
-				
 
 				<div
 					className='content'
@@ -461,29 +507,29 @@ useEffect(() => {
 			</div>
 
 			{!isMobile && (
-            <div className='reviews-block' id='reviews'>
-                <h1>ВІДГУКИ</h1>
-                <p className='description'>Відгуки клієнтів</p>
+				<div className='reviews-block' id='reviews'>
+					<h1>ВІДГУКИ</h1>
+					<p className='description'>Відгуки клієнтів</p>
 
-                <div className='review-container' ref={containerRef}>
-                    {review}
-                </div>
-								<div className='review-card'></div>
+					<div className='review-container' ref={containerRef}>
+						{review}
+					</div>
+					<div className='review-card'></div>
 
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div
-                        className='next-button'
-                        onClick={btnPrevReview}
-                        style={{ transform: 'rotate(180deg)' }}
-                    >
-                        <div className='array-next-icon' />
-                    </div>
-                    <div className='next-button' onClick={btnNextReview}>
-                        <div className='array-next-icon' />
-                    </div>
-                </div>
-            </div>
-        )}
+					<div style={{ display: 'flex', justifyContent: 'center' }}>
+						<div
+							className='next-button'
+							onClick={btnPrevReview}
+							style={{ transform: 'rotate(180deg)' }}
+						>
+							<div className='array-next-icon' />
+						</div>
+						<div className='next-button' onClick={btnNextReview}>
+							<div className='array-next-icon' />
+						</div>
+					</div>
+				</div>
+			)}
 
 			<div className='footer'>© Kozhydlo Mark</div>
 
