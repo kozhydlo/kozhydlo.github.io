@@ -155,19 +155,25 @@ useEffect(() => {
 	}
 
 	useEffect(() => {
-		const box = containerRef.current
-		const firstReview = box.querySelector('.review-card')
-		if (firstReview) {
-			reviewWidthRef.current = firstReview.clientWidth
-			const width = reviewWidthRef.current * visibleReview
-			box.scrollLeft = (box.scrollWidth - width) / 2
-			box.addEventListener('scroll', handleScroll)
+    const box = containerRef.current;
 
-			return () => {
-				box.removeEventListener('scroll', handleScroll)
-			}
-		}
-	}, [])
+    // Перевірка на існування containerRef.current
+    if (!box) return;
+
+    const firstReview = box.querySelector('.review-card');
+    if (firstReview) {
+        reviewWidthRef.current = firstReview.clientWidth;
+        const width = reviewWidthRef.current * visibleReview;
+        box.scrollLeft = (box.scrollWidth - width) / 2;
+        box.addEventListener('scroll', handleScroll);
+
+        // Очищення під час демонтажу
+        return () => {
+            box.removeEventListener('scroll', handleScroll);
+        };
+    }
+}, []);
+
 
 	const [scroll, setScroll] = useState(0)
 
