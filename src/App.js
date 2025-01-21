@@ -10,6 +10,17 @@ import Theme from './Theme.js'
 import YouTubeDesign from './YouTubeDesign.js'
 
 function App() {
+	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+useEffect(() => {
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+}, []);
 	const [isPortrait, setIsPortrait] = useState(
 		window.innerWidth > window.innerHeight
 	)
@@ -443,27 +454,29 @@ function App() {
 				</div>
 			</div>
 
-			<div className='reviews-block' id='reviews'>
-				<h1>ВІДГУКИ</h1>
-				<p className='description'>Відгуки клієнтів</p>
+			{!isMobile && (
+            <div className='reviews-block' id='reviews'>
+                <h1>ВІДГУКИ</h1>
+                <p className='description'>Відгуки клієнтів</p>
 
-				<div className='review-container' ref={containerRef}>
-					{review}
-				</div>
+                <div className='review-container' ref={containerRef}>
+                    {review}
+                </div>
 
-				<div style={{ display: 'flex', justifyContent: 'center' }}>
-					<div
-						className='next-button'
-						onClick={btnPrevReview}
-						style={{ transform: 'rotate(180deg)' }}
-					>
-						<div className='array-next-icon' />
-					</div>
-					<div className='next-button' onClick={btnNextReview}>
-						<div className='array-next-icon' />
-					</div>
-				</div>
-			</div>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div
+                        className='next-button'
+                        onClick={btnPrevReview}
+                        style={{ transform: 'rotate(180deg)' }}
+                    >
+                        <div className='array-next-icon' />
+                    </div>
+                    <div className='next-button' onClick={btnNextReview}>
+                        <div className='array-next-icon' />
+                    </div>
+                </div>
+            </div>
+        )}
 
 			<div className='footer'>© Kozhydlo Mark</div>
 
