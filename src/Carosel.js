@@ -1,10 +1,25 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react'
 import './Carosel.css';
 
 const importAll = (r) => r.keys().map(r);
 const images = importAll(require.context('./assets/all', false, /\.(png|jpe?g|svg)$/));
 
 const Carousel = ({ direction }) => {
+    const [isPortrait, setIsPortrait] = useState(
+		window.innerWidth > window.innerHeight
+	)
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsPortrait(window.innerWidth > window.innerHeight)
+		}
+		window.addEventListener('resize', handleResize)
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [])
+	
+
     const carouselRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
     const [modalImage, setModalImage] = useState(null);
@@ -42,7 +57,7 @@ const Carousel = ({ direction }) => {
                         key={index}
                         src={image}
                         alt={`carousel-item-${index}`}
-                        className="carousel-image"
+                        className={ isPortrait ? "carousel-image" : "carousel-image mobile"}
                         onClick={() => setModalImage(image)}
                     />
                 ))}

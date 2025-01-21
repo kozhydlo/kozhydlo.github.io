@@ -362,24 +362,20 @@ header a:hover {
 }
 
 
-.service-block {
-	height: 500px;
-	margin-left: -5vw;
-	margin-right: -5vw;
-	padding: 0 5vw;
-	background: var(--service-background);
-	align-content: center;
-}
-
 .service-block .tag {
-	display: flex;
+	display: inline-flex;
 	font-size: 24px;
 	font-weight: 500;
 	background: var(--main-elements-color);
 	color: var(--tag-text-color);
-	margin: 0 12 0 0;
+	margin: 0 12px 0 0;
 	padding: 8px 22px 8px 8px;
 	border-radius: 24px;
+}
+
+.service-block .tag.mobile {
+	font-size: 4.5vw;
+	margin-bottom: 10px;
 }
 
 .service-block .tag .tag-icon {
@@ -391,6 +387,10 @@ header a:hover {
 	height: 50px;
 }
 
+.service-block .tag .tag-icon.mobile {
+	height: 38px;
+}
+
 .service-block .icon-dark {
 	content: url('./assets/icons/check.svg');
 }
@@ -399,9 +399,6 @@ header a:hover {
 	content: url('./assets/icons/check-light.svg');
 }
 
-.tag {
-	margin-right: 12px;
-}
 
 .portfolio-block {
 	height: auto;
@@ -413,6 +410,10 @@ header a:hover {
 	align-items: center;
 }
 
+.portfolio-block .first-block.mobile {
+	margin-top: 5vw;
+}
+
 .portfolio-block .main-title {
 	font-size: 56px;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -420,6 +421,12 @@ header a:hover {
 	background: linear-gradient(to right, var(--main-text-color), #4824ff);
 	color: transparent;
 	background-clip: text;
+}
+
+.portfolio-block .main-title.mobile {
+	font-size: 28px;
+	margin-left: 3vw;
+	z-index: 1;
 }
 
 .portfolio-block .array-icon {
@@ -443,6 +450,10 @@ header a:hover {
 		1px 1px 0 var(--main-border-color);
 }
 
+.portfolio-block .title-border.mobile {
+	font-size: 28px;
+}
+
 .gradient-part-one {
 	position: absolute;
 	background: linear-gradient(to right, transparent, var(--main-background));
@@ -451,12 +462,22 @@ header a:hover {
 	width: 200px;
 }
 
+.gradient-part-one.mobile {
+	width: 18vw;
+	height: 10vw;
+}
+
 .gradient-part-two {
 	position: absolute;
 	background: linear-gradient(to left, transparent, var(--main-background));
 	color: white;
 	height: 70px;
 	width: 200px;
+}
+
+.gradient-part-two.mobile {
+	width: 18vw;
+	height: 10vw;
 }
 
 .portfolio-block .tag {
@@ -471,6 +492,10 @@ header a:hover {
 	cursor: pointer;
 	transition: 0.5s ease-in-out;
 	padding-left: 15px;
+}
+
+.portfolio-block .tag.mobile {
+	font-size: 15px;
 }
 
 .portfolio-block .tag:hover {

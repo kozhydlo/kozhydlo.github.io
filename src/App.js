@@ -5,7 +5,6 @@ import Banners from './Banners.js'
 import InstagramStories from './InstagramStories.js'
 import ModalMenu from './ModalMenu.js'
 import ModalWindow from './ModalWindow.js'
-import Resize from './Resize.js'
 import Review from './Review.js'
 import Theme from './Theme.js'
 import YouTubeDesign from './YouTubeDesign.js'
@@ -305,14 +304,13 @@ function App() {
 				</h2>
 				{isPortrait ? (
 					<p style={{ fontSize: '22px' }}>
-					Ви можете зв'язатися зі мною в Telegram <br /> або Instagram 👇
-				</p>
+						Ви можете зв'язатися зі мною в Telegram <br /> або Instagram 👇
+					</p>
 				) : (
 					<p style={{ fontSize: '33px' }}>
-					Ви можете зв'язатися зі мною в Telegram <br /> або Instagram 👇
-				</p>
+						Ви можете зв'язатися зі мною в Telegram <br /> або Instagram 👇
+					</p>
 				)}
-				
 			</ModalWindow>
 
 			{isPortrait ? (
@@ -362,131 +360,80 @@ function App() {
 				</div>
 			)}
 
-			<div className='service-block' draggable='false' id='services'>
-				<h1 style={{ fontSize: '50px' }}>Послуги</h1>
-				<p style={{ fontSize: '27px' }}>
+			<div
+				className={isPortrait ? 'service-block' : 'service-block mobile'}
+				draggable='false'
+				id='services'
+			>
+				<h1 style={{ fontSize: isPortrait ? '50px' : '10vw' }}>Послуги</h1>
+				<p style={{ fontSize: isPortrait ? '27px' : '6vw' }}>
 					Роблю
 					<span style={{ color: '#4824ff' }}> статичний дизайн </span> по
 					наступним направленням:
 				</p>
 
-				<div style={{ display: 'flex' }}>
-					<p className='tag'>
+				<div style={{ display: isPortrait ? 'flex' : '' }}>
+					<p className={isPortrait ? 'tag' : 'tag mobile'}>
 						<span
-							className={
+							className={`tag-icon ${
 								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
-							}
-						></span>{' '}
+							} ${isPortrait ? '' : 'mobile'}`}
+						></span>
 						Рекламні сайти
 					</p>
-
-					<p className='tag'>
+					<p className={isPortrait ? 'tag' : 'tag mobile'}>
 						<span
-							className={
+							className={`tag-icon ${
 								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
-							}
-						></span>{' '}
+							} ${isPortrait ? '' : 'mobile'}`}
+						></span>
 						Рекламні сайти
 					</p>
-					<p className='tag'>
+					<p className={isPortrait ? 'tag' : 'tag mobile'}>
 						<span
-							className={
+							className={`tag-icon ${
 								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
-							}
-						></span>{' '}
-						Рекламні сайти
-					</p>
-					<p className='tag'>
-						<span
-							className={
-								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
-							}
-						></span>{' '}
-						Рекламні сайти
-					</p>
-					<p className='tag'>
-						<span
-							className={
-								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
-							}
-						></span>{' '}
-						Рекламні сайти
-					</p>
-					<p className='tag'>
-						<span
-							className={
-								theme === 'light' ? 'tag-icon icon-dark' : 'tag-icon icon-light'
-							}
-						></span>{' '}
+							} ${isPortrait ? '' : 'mobile'}`}
+						></span>
 						Рекламні сайти
 					</p>
 				</div>
 
-				<p style={{ fontSize: '27px' }}>
-					Готовй для домовлиності створення сайту і під інші направлення <br />{' '}
+				<p style={{ fontSize: isPortrait ? '27px' : '6vw' }}>
+					Готовй для домовленості створення сайту і під інші направлення <br />
 					Деталі за замовленням можна{' '}
 					<span
 						style={{ color: '#4824ff', cursor: 'pointer' }}
 						onClick={handleOpenModal}
 					>
-						{' '}
 						зв'язатися зі мною
 					</span>
 				</p>
 			</div>
 
 			<div className='portfolio-block' id='portfolio'>
-				<div className='first-block'>
-					<h1 className='main-title'>Портфоліо</h1>
-					<div style={{ position: 'absolute', marginLeft: '-620px' }}>
-						<p className='gradient-part-one'></p>
-						<p className='title-border'>Портф</p>
+				<div className={isPortrait ? 'first-block' : 'first-block mobile'}>
+					<h1 className={isPortrait ? 'main-title' : 'main-title mobile'}>Портфоліо</h1>
+					<div style={{ position: 'absolute', marginLeft: isPortrait ? '-620px' : '-80vw' }}>
+						<p className={isPortrait ? 'gradient-part-one' : 'gradient-part-one mobile'}></p>
+						{isPortrait ? (
+							<p className='title-border'>Портф</p> )
+						: (
+							<p className='title-border mobile'>Пор</p>
+						)}
 					</div>
-					<div style={{ position: 'absolute', marginLeft: '580px' }}>
-						<p className='gradient-part-two'></p>
-						<p className='title-border'>Фоліо</p>
+					<div style={{ position: 'absolute', marginLeft: isPortrait ? '580px' : '80vw' }}>
+						<p className={ isPortrait ? 'gradient-part-two' : 'gradient-part-two mobile'}></p>
+						{isPortrait ? (
+							<p className='title-border'>фоліо</p> )
+						: (
+							<p className='title-border mobile'>ліо</p>
+						)}
 					</div>
 					{/* <img className='array-icon' src={arrayIcon} draggable='false' /> */}
 				</div>
 
-				<div
-					style={{
-						display: 'flex',
-						justifyContent: 'center',
-						marginBottom: '20px',
-					}}
-				>
-					{/* <p
-						className={`tag ${selectedCategory === 'All' ? 'seclected' : ''}`}
-						onClick={() => setSelectedCategory('All')}
-					>
-						Всі роботи
-					</p>
-					<p
-						className={`tag ${
-							selectedCategory === 'Banners' ? 'seclected' : ''
-						}`}
-						onClick={() => setSelectedCategory('Banners')}
-					>
-						Баннери
-					</p>
-					<p
-						className={`tag ${
-							selectedCategory === 'YouTubeDesign' ? 'seclected' : ''
-						}`}
-						onClick={() => setSelectedCategory('YouTubeDesign')}
-					>
-						Дизайн YouTube
-					</p>
-					<p
-						className={`tag ${
-							selectedCategory === 'InstagramStories' ? 'seclected' : ''
-						}`}
-						onClick={() => setSelectedCategory('InstagramStories')}
-					>
-						Insagram Stories
-					</p> */}
-				</div>
+				
 
 				<div
 					className='content'

@@ -16,6 +16,10 @@
 	margin: 10px
 }
 
+.carousel-image.mobile {
+	height: 175px;
+}
+
 /* .carousel-image:hover {
 	cursor: pointer;
 } */
