@@ -488,7 +488,7 @@ useEffect(() => {
 			<div className='footer'>© Kozhydlo Mark</div>
 
 			<button
-				className={scroll < 1050 ? '' : 'btn-up'}
+				className={scroll < 890 ? '' : isPortrait ? 'btn-up' : 'btn-up mobile'}
 				onClick={upButton}
 			></button>
 		</div>

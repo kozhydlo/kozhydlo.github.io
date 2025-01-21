@@ -660,3 +660,8 @@ header a:hover {
 	background-size: 100% 100%;
 	background-image: url('./assets/icons/more.svg');
 }
+
+.btn-up.mobile::before {
+	width: 15vw;
+	height: 15vw;
+}
