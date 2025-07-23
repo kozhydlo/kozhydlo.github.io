@@ -1,20 +1,20 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { db, collection } from "../firebase";
-import { getDocs } from "firebase/firestore";
-import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
-import { useTheme } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import CardProject from "../components/CardProject";
-import TechStackIcon from "../components/TechStackIcon";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Certificate from "../components/Certificate";
-import { Code, Award, Boxes } from "lucide-react";
+import AppBar from "@mui/material/AppBar"
+import Box from "@mui/material/Box"
+import { useTheme } from "@mui/material/styles"
+import Tab from "@mui/material/Tab"
+import Tabs from "@mui/material/Tabs"
+import Typography from "@mui/material/Typography"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { getDocs } from "firebase/firestore"
+import { Award, Boxes, Code } from "lucide-react"
+import PropTypes from "prop-types"
+import { useCallback, useEffect, useState } from "react"
+import SwipeableViews from "react-swipeable-views"
+import CardProject from "../components/CardProject"
+import Certificate from "../components/Certificate"
+import TechStackIcon from "../components/TechStackIcon"
+import { collection, db } from "../firebase"
 
 // Separate ShowMore/ShowLess button component
 const ToggleButton = ({ onClick, isShowingMore }) => (
@@ -113,6 +113,10 @@ const techStacks = [
   { icon: "MUI.svg", language: "Material UI" },
   { icon: "vercel.svg", language: "Vercel" },
   { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  { icon: "csharp.svg", language: "C#" },
+  { icon: "dotnet.svg", language: ".NET" },
+  { icon: "Arduino.svg", language: "Arduino" },
+  { icon: "jQuery.svg", language: "jQuery" },
 ];
 
 export default function FullWidthTabs() {

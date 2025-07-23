@@ -1,7 +1,7 @@
-import React, { useEffect, memo, useMemo } from "react"
-import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { ArrowUpRight, Award, Code, Globe, Sparkles } from "lucide-react"
+import { memo, useEffect, useMemo } from "react"
 
 // Memoized Components
 const Header = memo(() => (
@@ -214,7 +214,7 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-             Full Stack Developer | Specializing in React, Next.js, and Node.js. Passionate about clean code and building efficient solutions.
+             Full Stack JS / Backend C# Developer | Specializing in React, Next.js, Node.js, C# and .NET. Passionate about clean code and building efficient solutions.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
