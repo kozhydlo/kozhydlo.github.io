@@ -1,10 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import {
-  ArrowLeft, ExternalLink, Github, Code2, Star,
-  ChevronRight, Layers, Layout, Globe, Package, Cpu, Code,
-} from "lucide-react";
-import Swal from 'sweetalert2';
+  ArrowLeft,
+  ChevronRight,
+  Code,
+  Code2,
+  Cpu,
+  ExternalLink, Github,
+  Globe,
+  Layers, Layout,
+  Package,
+  Star,
+} from "lucide-react"
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+import Swal from 'sweetalert2'
 
 const TECH_ICONS = {
   React: Globe,
