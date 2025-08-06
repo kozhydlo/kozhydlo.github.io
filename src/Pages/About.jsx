@@ -1,6 +1,6 @@
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { ArrowUpRight, Award, Code, Globe, Sparkles } from "lucide-react"
+import { ArrowUpRight, Award, Code, FileText, Globe, Sparkles } from "lucide-react"
 import { memo, useEffect, useMemo } from "react"
 
 // Memoized Components
