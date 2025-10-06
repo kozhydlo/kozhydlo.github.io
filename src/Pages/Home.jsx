@@ -4,6 +4,7 @@ import 'aos/dist/aos.css'
 import { ExternalLink, Github, Instagram, Linkedin, Mail } from 'lucide-react'
 import PropTypes from 'prop-types'
 import { memo, useCallback, useEffect, useState } from 'react'
+import FloatingSocials from '../components/FloatingSocials'
 
 // Memoized Components
 const StatusBadge = memo(function StatusBadge() {
@@ -298,6 +299,7 @@ const Home = function Home() {
 					</div>
 				</div>
 			</div>
+			<FloatingSocials />
 		</div>
 	)
 }
