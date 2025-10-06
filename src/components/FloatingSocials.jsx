@@ -1,5 +1,5 @@
 import { Github, Instagram, Linkedin, Mail } from 'lucide-react'
-import { memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 
 const FloatingSocials = () => {
 	const socials = [
@@ -12,8 +12,19 @@ const FloatingSocials = () => {
 		{ icon: Mail, link: 'mailto:your@email.com' },
 	]
 
+	const [show, setShow] = useState(false)
+
+	useEffect(() => {
+		const timer = setTimeout(() => setShow(true), 500) // затримка появи
+		return () => clearTimeout(timer)
+	}, [])
+
 	return (
-		<div className='fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4'>
+		<div
+			className={`hidden md:flex fixed right-4 top-1/2 -translate-y-1/2 z-50 flex-col gap-4 transform transition-all duration-700 ease-out ${
+				show ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
+			}`}
+		>
 			<div className='bg-gradient-to-b from-gray-900/70 to-gray-800/70 backdrop-blur-xl border border-white/10 rounded-2xl p-3 flex flex-col gap-3 shadow-lg shadow-purple-500/10'>
 				{socials.map((social, i) => (
 					<a
